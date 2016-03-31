@@ -15,18 +15,29 @@ body {
   margin: 0;
 }
 video {
-  width: 200px;
-  height: 150px;
   background: #eee;
 }
+#localVideo {
+  width: 200px;
+  height: 150px;
+}
+#remotesVideos video {
+  width: 200px;
+  height: 150px;
+  margin: 0 15px 15px 0;
+}
 .panel {
-  border-right: 1px solid #ddd;
   height: 100vh;
 }
 .panel--left {
-  width: 200px;
+  width: 220px;
   padding: 10px;
+  border-right: 1px solid #ddd;
+  position: fixed;
+  left: 0;
+  top: 0;
 }
 .panel--main {
-  width: 75vw;
+  width: 100vw;
+  padding: 10px 10px 10px 230px;
 }
