@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>title</title>
+  <title>webrtc</title>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+  <script src="https://simplewebrtc.com/latest-v21.js"></script>
+  <script src="js/script.js"></script>
+  <!--<link href="css/bootstrap.css" rel="stylesheet">-->
   <link href="css/style.css" rel="stylesheet">
-  <script src="https://simplewebrtc.com/latest-v2.js"></script>
 </head>
 <body>
  	<body>
-		<h2>local video</h2>
-		<video id="localVideo"></video>
-		<h2>remote videos</h2>
-		<div id="remotesVideos"></div>
-		<script>
-			var webrtc = new SimpleWebRTC({
-				localVideoEl: 'localVideo',
-				remoteVideosEl: 'remotesVideos',
-				autoRequestMedia: true
-			});			
-			webrtc.on('readyToCall', function () {
-				webrtc.joinRoom('bigmsk');
-			});
-		</script>
+ 	  <div class="panel panel--left">
+ 	  	<h2>local video</h2>
+			<video id="localVideo"></video>
+ 	  </div>
+ 	  <div class="panel panel--main">
+ 	    <h2>remote videos</h2>
+ 	  	<div id="remotesVideos"></div>
+ 	  </div>
 	</body>   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/script.js"></script>
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.js"></script>-->  
 </body>
 </html>
 

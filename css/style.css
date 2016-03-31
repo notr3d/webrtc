@@ -7,15 +7,26 @@
   font-family: Oswald;
   src: url("font/Oswald/Oswald-Light.ttf");
 }*/
+/*.lcw() {
+  max-width:1080px;
+  margin: 0 auto;
+}*/
 body {
   margin: 0;
 }
 video {
   width: 200px;
   height: 150px;
-  border: 1px solid #000;
   background: #eee;
 }
-#remotesVideos video {
-  margin-right: 15px;
+.panel {
+  border-right: 1px solid #ddd;
+  height: 100vh;
+}
+.panel--left {
+  width: 200px;
+  padding: 10px;
+}
+.panel--main {
+  width: 75vw;
 }
