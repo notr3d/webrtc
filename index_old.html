@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://simplewebrtc.com/latest-v2.js"></script> 
+		<style>
+			video {
+				width: 200px;
+				height: 150px;
+				border: 1px solid #aaa;
+				background: #eee;
+			}
+			#remotesVideos video {
+				margin-right: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<p>local video</p>
+		<video id="localVideo"></video>
+		<p>remote videos</p>
+		<div id="remotesVideos"></div>
+		<script>
+			var webrtc = new SimpleWebRTC({
+				localVideoEl: 'localVideo',
+				remoteVideosEl: 'remotesVideos',
+				autoRequestMedia: true
+			});			
+			webrtc.on('readyToCall', function () {
+				webrtc.joinRoom('bigmsk');
+			});
+		</script>
+	</body>
+</html>
