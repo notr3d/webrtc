@@ -21,10 +21,26 @@ video {
   width: 200px;
   height: 150px;
 }
+.videoContainer {
+  display: inline-block;
+  position: relative;
+}
 .videoContainer video {
   width: 200px;
   height: 150px;
-  margin: 0 15px 15px 0;
+  margin-right: 15px;
+}
+.videoContainer h6 {
+  position: absolute;
+  top: 0;
+  padding: 0;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.33);
+  z-index: 100;
+  margin: 0;
+  padding: 5px;
 }
 .panel {
   height: 100vh;
@@ -36,6 +52,18 @@ video {
   position: fixed;
   left: 0;
   top: 0;
+}
+.panel--left h6 {
+  position: absolute;
+  top: 15px;
+  padding: 0;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.33);
+  z-index: 100;
+  margin: 0;
+  padding: 5px;
 }
 .panel--main {
   width: 100vw;
