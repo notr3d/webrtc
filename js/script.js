@@ -7,3 +7,7 @@ var webrtc = new SimpleWebRTC({
 webrtc.on('readyToCall', function () {
 	webrtc.joinRoom('bigmsk');
 });
+
+$('.toggle-left-panel').click(function(){
+	alert(1);
+});
