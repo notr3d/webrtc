@@ -89,36 +89,51 @@ webrtc.on('connectivityError', function (peer) {
 
 //------------------text-chat-----------------
 
- // Await messages from others
+ 
 var chatPanel = $('#chatPanel'),
 	chatText = $('#chatText'),
-	chatSend = $('#chatSend');
+	chatSend = $('#chatSend'),
+	sendMessage = function(){
+	var message = chatText.val();
+	console.log('message sent');
+	webrtc.sendToAll('chat', {message: message, nick: webrtc.config.nick});
+	chatPanel.append('<div class="message message--yours"><span class="message__name">You: </span><span class="message__text">' + message + '</span></div>');
+	chatPanel.animate({scrollTop: document.querySelector('#chatPanel').scrollHeight}, 300);
+	chatText.val('');
+	chatSend.attr('disabled', true);
+	chatText.focus();
+};
 
+// Await messages from others
 webrtc.connection.on('message', function(data){
 	if (data.type === 'chat'){
 		console.log('message received', data);
 		chatPanel.append('<div class="message"><span class="message__name">' + data.payload.nick + ': </span><span class="message__text">' + data.payload.message + '</span></div>');
+		chatPanel.animate({scrollTop: document.querySelector('#chatPanel').scrollHeight}, 300);
 	}
 });
 
+//активация кнопки "отправить"
 chatText.on('keyup', function(){
-	if (chatText.val() !== '') {	
+	if (chatText.val() !== '' && chatText.val().trim().length > 0) {	
 		chatSend.attr('disabled', false);	
 	} else {
 		chatSend.attr('disabled', true);
 	}
 });
 
-// Send a chat message
-chatSend.click(function(){
-	var message = chatText.val();
-	console.log('message sent');
-	webrtc.sendToAll('chat', {message: message, nick: webrtc.config.nick});
-	chatPanel.append('<div class="message message--yours"><span class="message__name">You: </span><span class="message__text">' + message + '</span></div>');
-	chatText.val('');
-	chatSend.attr('disabled', true);
+//отправка по нажатию ентер
+chatText.keypress(function(e){
+	if (e.which == 13 && !e.shiftKey){
+		e.preventDefault();
+		if (chatText.val() !== '' && chatText.val().trim().length > 0) {
+			sendMessage();		
+			chatText.val('');
+			//return false; 	
+		}		
+	}; 
 });
 
-
-
+// Send a chat message
+chatSend.click(sendMessage);
 

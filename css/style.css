@@ -94,7 +94,8 @@ video {
   position: relative;
 }
 .chat__messages {
-  height: 80%;
+  height: 50%;
+  overflow-y: scroll;
 }
 .chat__input {
   height: 20%;
