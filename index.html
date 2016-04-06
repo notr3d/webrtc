@@ -5,23 +5,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="js/webrtc.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="js/script.js"></script>
   <link href="css/bootstrap.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
  	<body>
  	  <div class="panel panel--left">
- 	  	<h6>local video</h6>
-		<video id="localVideo"></video>
+ 	  	<div class="localVideo__container">
+ 	  		<h6 class="localVideo__header">local video</h6>
+			<video id="localVideo" class="localVideo"></video>
+ 	  	</div> 	  	
  	  </div>
  	  <div class="panel panel--main">
  	  	<div id="remoteVideos" class="remoteVideos"></div>
  	  </div>
+ 	  <div class="panel panel--right">
+			<div class="chat">
+				<div id="chatPanel" class="chat__messages"></div>
+				<div class="chat__input">
+					<textarea id="chatText" class="chat__text" placeholder="Send a message..."></textarea>
+					<button id="chatSend" class="chat__send" disabled>Send</button>
+				</div>
+			</div>
+ 	  </div>
 	</body>   
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/webrtc.js"></script>
   <script src="js/bootstrap.js"></script> 
+  <script src="js/script.js"></script>
 </body>
 </html>
+
 

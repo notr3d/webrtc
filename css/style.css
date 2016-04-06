@@ -42,6 +42,19 @@ video {
   margin: 0;
   padding: 5px;
 }
+.videoContainer .connectionstate {
+  font-size: 12px;
+  position: absolute;
+  bottom: 5px;
+  padding: 0;
+  width: 200px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.33);
+  z-index: 100;
+  margin: 0;
+  padding: 5px;
+}
 .panel {
   height: 100vh;
 }
@@ -65,7 +78,53 @@ video {
   margin: 0;
   padding: 5px;
 }
+.panel--right {
+  width: 232px;
+  border-left: 1px solid #ddd;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
 .panel--main {
   width: 100vw;
-  padding: 15px 15px 15px 245px;
+  padding: 15px 245px 15px 245px;
+}
+.chat {
+  height: 100%;
+  position: relative;
+}
+.chat__messages {
+  height: 80%;
+}
+.chat__input {
+  height: 20%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+.chat__text {
+  resize: none;
+  width: 100%;
+}
+.chat__send {
+  width: 100%;
+  background: green;
+}
+.chat__send:disabled {
+  background: red;
+}
+.chat .message {
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+}
+.chat .message--yours {
+  background: #eee;
+  border-color: #ddd;
+}
+.chat .message__name {
+  font-weight: bold;
+  text-overflow: ellipsis;
+}
+.chat .message__text {
+  word-wrap: break-word;
 }
