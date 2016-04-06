@@ -1,9 +1,14 @@
+
 var webrtc = new SimpleWebRTC({
 	localVideoEl: 'localVideo',
 	remoteVideosVideosEl: '',
-	autoRequestMedia: true
-});			
+	autoRequestMedia: true,
+	nick: 'Без имени'
+});		
 
+webrtc.on('connectionReady', function () {
+	
+});
 webrtc.on('readyToCall', function () { //connectionReady here
 	webrtc.joinRoom('bigmsk');
 });
@@ -64,32 +69,8 @@ webrtc.on('videoRemoved', function (video, peer) {
     }
 });
 
-/*
-// local p2p/ice failure
-webrtc.on('iceFailed', function (peer) {
-    var connstate = document.querySelector('#container_' + webrtc.getDomId(peer) + ' .connectionstate');
-    console.log('local fail', connstate);
-    if (connstate) {
-        connstate.innerText = 'Connection failed.';
-        fileinput.disabled = 'disabled';
-    }
-});
-
-// remote p2p/ice failure
-webrtc.on('connectivityError', function (peer) {
-    var connstate = document.querySelector('#container_' + webrtc.getDomId(peer) + ' .connectionstate');
-    console.log('remote fail', connstate);
-    if (connstate) {
-        connstate.innerText = 'Connection failed.';
-        fileinput.disabled = 'disabled';
-    }
-});
-*/
-
-
 //------------------text-chat-----------------
 
- 
 var chatPanel = $('#chatPanel'),
 	chatText = $('#chatText'),
 	chatSend = $('#chatSend'),
@@ -141,5 +122,16 @@ chatText.keypress(function(e){
 // Send a chat message
 chatSend.click(sendMessage);
 
+//nickname
+var nameInput = $('#nameInput'),
+	nameOutput = $('#nameOutput'),
+	nameButton = $('#nameButton');
+	
+nameOutput.text(webrtc.config.nick);
+nameButton.click(function(){
+	webrtc.config.nick = nameInput.val();
+	nameOutput.text(webrtc.config.nick);
+});
 
+console.log(webrtc);
 
