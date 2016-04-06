@@ -102,6 +102,10 @@ var chatPanel = $('#chatPanel'),
 	chatText.val('');
 	chatSend.attr('disabled', true);
 	chatText.focus();
+	//при добавлении 1000 сообщений первое удаляется	
+	if (chatPanel.children().length > 1000) {
+		chatPanel.find('div.message').first().remove();
+	}
 };
 
 // Await messages from others
@@ -136,4 +140,6 @@ chatText.keypress(function(e){
 
 // Send a chat message
 chatSend.click(sendMessage);
+
+
 
