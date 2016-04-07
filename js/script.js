@@ -9,7 +9,7 @@ var webrtc = new SimpleWebRTC({
 webrtc.on('connectionReady', function () {
 	
 });
-webrtc.on('readyToCall', function () { //connectionReady here
+webrtc.on('connectionReady', function () { //readyToCall was here
 	webrtc.joinRoom('bigmsk');
 });
 
